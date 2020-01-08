@@ -17,7 +17,7 @@ public class ResourceTest {
                 .when().get("/find/victim/byName/{name}")
                 .then()
                 .statusCode(200)
-                .body(is("{\"empty\":false,\"map\":{\"victims\":{\"empty\":false,\"list\":[{\"empty\":false,\"map\":{\"id\":\"test-incident-id\",\"lon\":\"lon\",\"medicalNeeded\":true,\"numberOfPeople\":123,\"victimName\":\"test-victim\",\"status\":\"test\"}}]}}}"));
+                .body(is("{\"empty\":false,\"map\":{\"victims\":{\"empty\":false,\"list\":[{\"empty\":false,\"map\":{\"id\":\"test-incident-id\",\"lon\":\"lon\",\"medicalNeeded\":true,\"numberOfPeople\":123,\"victimName\":\"test-victim-1\",\"status\":\"test\"}}]}}}"));
     }
 
     //Victim's details are not available
