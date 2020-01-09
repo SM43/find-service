@@ -25,12 +25,12 @@ public class MockIncidentRestClient implements IncidentRestClient {
         Victim victim = new Victim();
         victim.setVictimName("test-victim-1");
         victim.setId("test-incident-id");
-        victim.setStatus("test");
+        victim.setStatus("REPORTED");
         victim.setTimestamp(null);
         victim.setNumberOfPeople(123);
         victim.setMedicalNeeded(true);
-        victim.setLon("lat");
-        victim.setLon("lon");
+        victim.setLat("00.00");
+        victim.setLon("00.00");
         return victim;
     }
 }
