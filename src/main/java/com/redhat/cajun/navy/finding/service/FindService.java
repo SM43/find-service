@@ -43,7 +43,7 @@ public class FindService {
             JsonObject jsonObject = new JsonObject().put("victims", victimsArray);
             return Response.ok(jsonObject).build();
         } catch (Exception ex) {
-            logger.info("Unable to connect to Incident Service. ", ex);
+            logger.error("Unable to connect to Incident Service. ", ex);
             return Response.status(Response.Status.SERVICE_UNAVAILABLE).build();
         }
     }
@@ -97,7 +97,7 @@ public class FindService {
             return Response.ok(jsonObject).build();
 
         } catch (Exception ex) {
-            logger.info("Unable to connect to Mission Service. ", ex);
+            logger.error("Unable to connect to Mission Service. ", ex);
             return Response.status(Response.Status.SERVICE_UNAVAILABLE).build();
         }
     }
