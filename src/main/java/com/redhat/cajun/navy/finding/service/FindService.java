@@ -32,7 +32,7 @@ public class FindService {
 
     public Response getVictimByName(String name) {
 
-        logger.info("***Requesting Victim Details for victim name - "+name+"***");
+        logger.info("***Requesting victim details for victim name - "+name+"***");
 
         List<Victim> victimList = null;
         try {
@@ -69,7 +69,7 @@ public class FindService {
                 isMissionCreated = mission.contains(incidentId);
                 if (isMissionCreated) {
                     missionId = mission;
-                    logger.info("Found mission Id - " + mission + " for Incident Id - " + incidentId);
+                    logger.info("Found Mission Id - " + mission + " for Incident Id - " + incidentId);
                     break;
                 }
             }
@@ -81,16 +81,16 @@ public class FindService {
                 return Response.ok(jsonObject).build();
             }
 
-            logger.info("Request sent for getting mission details of missionId - " + missionId);
+            logger.info("Request sent for getting mission details of Mission Id - " + missionId);
             String missionDetails = missionRestClient.getMissionById(missionId);
-            logger.info("Received Mission details for mission Id - " + missionId);
+            logger.info("Received Mission details for Mission Id - " + missionId);
 
             JSONObject jsonResponse = new JSONObject(missionDetails);
             String shelterLat = jsonResponse.getString("destinationLat");
             String shelterLong = jsonResponse.getString("destinationLong");
 
             Shelter shelter = getShelterName(shelterLat, shelterLong);
-            logger.info("Shelter Details for Mission Id - " + missionId + " name - " + shelter.getName() + " lat - " + shelter.getLat() + " Long - " + shelter.getLon());
+            logger.info("Shelter details for Mission Id - " + missionId + " name - " + shelter.getName() + " lat - " + shelter.getLat() + " lon - " + shelter.getLon());
 
             JsonObject jsonObject = new JsonObject().put("status", true);
             jsonObject.put("shelter", toShelterJsonObject(shelter));
@@ -109,7 +109,7 @@ public class FindService {
                 return shelter;
             }
         }
-        return new Shelter("Shelter Name not available", lat, lon);
+        return new Shelter("Shelter name not available", lat, lon);
     }
 
     private JsonObject toShelterJsonObject(Shelter shelter) {
